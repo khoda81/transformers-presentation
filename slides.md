@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: "bg.png"
+background: "/images/background.png"
 title: Attention is more than what you need
 titleTemplate: "%s"
 info: |
@@ -59,12 +59,6 @@ hideInToc: true
 <h3>Table of Contents:</h3>
 <Toc minDepth="1" maxDepth="1" ></Toc> 
 </div>
-
----
-transition: fade-out
----
-
-# Timeline
 
 ---
 transition: fade-out
@@ -161,7 +155,7 @@ level: 2
 <span v-click class="rounded-lg m-0.5 pl-0.5 pr-0.5" style="background-color: rgba(107, 64, 216, 0.7)">!</span>
 <div v-click>
 
-- Transformer based language modeling are all about predicting the next token
+- Language modeling is all about predicting the next token
 - Turns out just predicting the next token is general enough for lots of tasks
   - The model needs to know programming to predict a code token
   - It needs to have general knowledge of the world in case it needs to predict a capital name
@@ -172,73 +166,7 @@ level: 2
 
 ---
 transition: fade-out
-level: 2
----
-
-# Tokenizer
-
-- What is a Token
-- How to find Optimal Tokens (in Context of Natural Language)
-  - Old Methods
-  - BPE
-  - New Ideas
-
----
-transition: fade-out
-level: 2
----
-
-# Anatomy of Model
-- Embedding
-- Positional Embedding
-- MHA
-- Decoder/Encoder
-
----
-transition: fade-out
----
-
-<iframe src="https://bbycroft.net/llm" class="slidev-full-iframe"></iframe>
-<div class="slidev-note">Courtesy of <a href="https://bbycroft.net/llm">https://bbycroft.net/llm</a></div>
-
-<style>
-.slidev-full-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.slidev-note {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-}
-</style>
-
----
-transition: fade-out
 layout: two-cols
----
-
-# Why Not Older Architectures?
-One might ask, based on which metric toward transformers happened, and even if it's just better, why it's so? In this section we look for an answer for these 2 questions
-
-::right::
-
-<div v-click >
-<h3>Table of Contents:</h3>
-<Toc Toc minDepth="2" maxDepth="2"></Toc> 
-</div>
-
----
-level: 2
-transition: fade-out
 ---
 
 # LSTM
@@ -262,14 +190,19 @@ transition: fade-out
 
 ---
 level: 2
+layout: two-cols
 ---
 
 # Transformer, Tho...
 - Uses attention
-![alt text](image.png)
 - The idea of attention was initially proposed to boost LSTMs!
 - What if we just used attention? Asked some researcher at Google
 - The paper "Attention is all you need" proposed to use <u>only</u> attention
+
+::right::
+<center>
+  <img src="/images/Attention.png" alt="A visualization of attention" width=250 height=200>
+</center>
 
 ---
 transition: fade-out
@@ -278,14 +211,12 @@ layout: two-cols
 
 # A Revolution, and its future
 
-After transformers, People thought, world of NLP wont be the same ever again, after sometime, they figured out, world of AI wont be the same ever again, and now, the common belief is the world wont be the same ever again, hope for and footstep of AGI can be heard, from not so far.
+It wont be the same again...
+- What made transformers so big? (in parameter count)
+- What made transformers so big? (in technology)
 
-::right::
-
-<div v-click >
-<h3>Table of Contents:</h3>
-<Toc Toc minDepth="2" maxDepth="2"></Toc> 
-</div>
+<!-- 
+After transformers, People thought, world of NLP wont be the same ever again, after sometime, they figured out, world of AI wont be the same ever again, and now, the common belief is the world wont be the same ever again, hope for and footstep of AGI can be heard, from not so far. -->
 
 ---
 transition: fade-out
