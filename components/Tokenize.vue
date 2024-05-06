@@ -10,22 +10,24 @@ const props = defineProps({
         type: Number,
         default: 0,
     },
+    colors: {
+        type: Array as () => string[],
+        default: () => [
+            "rgba(107, 64, 216, 0.5)",
+            "rgba(104, 222, 122, 0.4)",
+            "rgba(244, 172, 54, 0.4)",
+            "rgba(239, 65, 70, 0.4)",
+            "rgba(39, 181, 234, 0.4)",
+            "rgba(107, 64, 216, 0.5)",
+        ],
+    },
 });
-
-const colors = [
-    "rgba(107, 64, 216, 0.7)",
-    "rgba(104, 222, 122, 0.6)",
-    "rgba(244, 172, 54, 0.6)",
-    "rgba(239, 65, 70, 0.6)",
-    "rgba(39, 181, 234, 0.6)",
-    "rgba(107, 64, 216, 0.7)",
-];
 
 </script>
 
 <template>
     <span v-for="(token, index) in props.tokens" :key="token" class="token"
-        :style="{ backgroundColor: colors[(index + props.initialColorIndex) % colors.length] }">
+        :style="{ backgroundColor: props.colors[(index + props.initialColorIndex) % props.colors.length] }">
         {{ token }}
     </span>
 </template>
@@ -36,5 +38,6 @@ const colors = [
     padding: 0 0.1em;
     border-radius: 0.3em;
     line-height: 1.5em;
+    white-space: pre-wrap;
 }
 </style>

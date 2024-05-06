@@ -1,5 +1,5 @@
 ---
-theme: default
+theme: ./theme
 background: "/images/background.png"
 # some information about your slides, markdown enabled
 title: Attention is more than what you need
@@ -14,7 +14,7 @@ colorSchema: dark
 highlighter: shiki
 # https://sli.dev/guide/drawing
 drawings:
-    persist: false
+  persist: false
 
 # slide transition: https://sli.dev/guide/animations#slide-transitions
 transition: fade-out
@@ -25,31 +25,23 @@ layout: cover
 ---
 
 <h1>
+    <!--  :colors='["rgba(107, 64, 216, 0.5)", "rgba(104, 222, 122, 0.6)", "rgba(244, 172, 54, 0.6)", "rgba(239, 65, 70, 0.6)", "rgba(39, 181, 234, 0.6)", "rgba(107, 64, 216, 0.7)"]' -->
+
   <Tokenize :tokens="['Attention']" />
   <br/>
   <Tokenize :initialColorIndex="1" :tokens="[' is', ' more', ' than', ' you', ' need']" />
 </h1>
 
-
 by Mahdi Khodabandeh
 
 <img id="logo" src="/images/guilan_universiy_logo.png" alt="Logo of Guilan University" />
 
-<!-- 
-What is language modeling?
-Why is it important? Just predicting tokens forces you to know a lot of things. therefore it became the pinnacle task of AI development
-Lets take a sentence (select a classic example!), tokenize it, and start predicting!
-LSTMs (RNNs), the initial idea.
-They were unstoppable!
-What happened? Transformers!
+<!--
 The vanishing gradient problem (memory bottleneck)
-The solution (Attention)
-Another problem (Calculating all these connections is way too slow)
-Tip #1 in optimization! Do less work! (Remove the sequential connections)
 Attention is all you need! (The paper)
 We can also do parallelism (It runs fast on GPU)
 And, this was why transformers are everywhere! (Conclusion)
- -->
+-->
 
 ---
 layout: two-cols
@@ -82,10 +74,57 @@ Language modeling is the art of predicting the next token
     <!-- TODO: Add a vertical distribution visualizer. -->
 </div>
 
+<style>
+    #tokenization-example {
+        font-size: 2rem;
+    }
+</style>
+
+<!-- Think about it as auto-complete. -->
+
 ---
+layout: full
 ---
 
 # What is a language model?
+
+<br />
+
+<div id="language-model-example">
+    <div>
+        <Tokenize :tokens="['The', ' quick', ' brown', ' fox', ' jumps']" />
+    </div>
+    <div class="distribution">
+        <div :style="{ opacity: '90.8119%' }"><Tokenize :colors="['#444a']" :tokens="[' over']" /></div>
+        <div :style="{ opacity: '50.6378%' }"><Tokenize :colors="['#444a']" :tokens="[' up']" /></div>
+        <div :style="{ opacity: '27.5646%' }"><Tokenize :colors="['#444a']" :tokens="[' out']" /></div>
+        <div :style="{ opacity: '8.3804%' }"><Tokenize :colors="['#444a']" :tokens="[' on']" /></div>
+        <div :style="{ opacity: '7.4399%' }"><Tokenize :colors="['#444a']" :tokens="[' in']" /></div>
+        <div :style="{ opacity: '7.1968%' }"><Tokenize :colors="['#444a']" :tokens="[' off']" /></div>
+        <div :style="{ opacity: '6.5143%' }"><Tokenize :colors="['#444a']" :tokens="[' into']" /></div>
+        <div :style="{ opacity: '5.3833%' }"><Tokenize :colors="['#444a']" :tokens="[' from']" /></div>
+        <div :style="{ opacity: '4.7140%' }"><Tokenize :colors="['#444a']" :tokens="[' to']" /></div>
+        <div :style="{ opacity: '1.4568%' }"><Tokenize :colors="['#444a']" :tokens="[' and']" /></div>
+    </div>
+</div>
+
+<style>
+    #language-model-example {
+        font-size: 3rem;
+        padding: auto;
+        display: flex;
+    }
+
+    .distribution {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start of the column */
+    }
+
+    .distribution div {
+        margin-bottom: 5px; /* Add margin between items */
+    }
+</style>
 
 <!-- Its the thing that predicts the next token. -->
 
@@ -113,31 +152,47 @@ And language modeling is everything!
 - RNNs have a memory that is updated on each step
 - We need to compute each step before doing the next
 
-<!-- TODO: insert a diagram of LSTM/RNN -->
+<br />
+
+<img src="public/images/Long-Short-Term-Memory-language-model.png" alt="A diagram of LSTM" />
 
 ---
 
 # RNNs were unstoppable!
-<!-- TODO: why? -->
 
+<br />
+
+1. 1950s: Early statistical models like n-grams'
+2. 1980s: RNNs
+3. 1990s-2000s: LSTMs
+4. 2010s: Attention introduced
+5. 2017-present: Transformers
+
+<!-- TODO: make this into a timeline -->
+
+---
+layout: fact
 ---
 
 # What happened?
-Transformers!
-
-- RNNs had some problems...
-<!-- TODO: insert a diagram of LSTM/RNN -->
+## RNNs had some problems...
 
 ---
 
 # The memory bottleneck
 
-<!-- TODO: insert a diagram -->
+<br />
+<br />
+
+<img src="public/images/Long-Short-Term-Memory-language-model.png" alt="A diagram of LSTM" />
+
 <!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
 
 ---
 
 # The fix
+
+<br />
 
 - What if we had an skip route?
 - This is where attention was born
@@ -178,7 +233,11 @@ hideInToc: true
 
 - What if we just used attention? Asked some researcher at Google
 - The paper "Attention is all you need" proposed to use <u>only</u> attention
-<!-- Turns out, it is more than you need :) -->
+
+<!-- 
+Tip #1 in optimization! Do less work!
+Turns out, it is more than you need :)
+ -->
 
 ---
 
@@ -202,12 +261,21 @@ This is also where the term LLM (Large Language Model) comes from
  -->
 
 ---
-layout: center
-class: text-center
+
+# Conclusion
+LSTMs are dead! Long live transformers!
+
+<!-- 
+This does not seem to stop (aka. our models seem to always get better as we make them bigger)
+This is also where the term LLM (Large Language Model) comes from
+ -->
+
+---
+layout: end
 ---
 
 <h1 :style="{ fontSize: 5 + 'rem' }">
-  <Tokenize :tokens="['<eos/>']" />
+  <Tokenize :tokens="['<end/>']" />
 </h1>
 
 <!-- TODO: this page is too empty -->
