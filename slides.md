@@ -6,8 +6,7 @@ title: Attention is more than what you need
 titleTemplate: "%s"
 info: false
 author: Mahdi Khodabandeh
-# controls whether texts in slides are selectable
-selectable: true
+selectable: false
 # force color schema for the slides, can be 'auto', 'light', or 'dark'
 colorSchema: dark
 # https://sli.dev/custom/highlighters.html
@@ -154,7 +153,7 @@ And language modeling is everything!
 
 <br />
 
-<img src="public/images/Long-Short-Term-Memory-language-model.png" alt="A diagram of LSTM" />
+<img src="/images/LSTM.png" alt="A diagram of LSTM" />
 
 ---
 
@@ -184,7 +183,8 @@ layout: fact
 <br />
 <br />
 
-<img src="public/images/Long-Short-Term-Memory-language-model.png" alt="A diagram of LSTM" />
+<img src="/images/LSTM.png" alt="A diagram of LSTM" />
+<!-- TODO: add a bunch of arrows as we click -->
 
 <!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
 
@@ -192,27 +192,25 @@ layout: fact
 
 # The fix
 
-<br />
-
 - What if we had an skip route?
 - This is where attention was born
 - If you want something, just ask!
-<!-- TODO: insert diagram of attention -->
+
+<br />
+<img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" />
 
 <!-- The idea of attention was initially proposed to boost LSTMs! -->
 
 ---
-hideInToc: true
-----
 
-# The fix
+# Attention
 
 - It has three parts:
     1. Key
     2. Query
     3. Value
 
-<!-- TODO: insert diagram of attention -->
+<img src="/images/Attention.png" alt="A diagram of attention" />
 
 ---
 
@@ -240,6 +238,8 @@ Turns out, it is more than you need :)
  -->
 
 ---
+layout: fact
+---
 
 # What made transformers so big?
 
@@ -260,6 +260,8 @@ This does not seem to stop (aka. our models seem to always get better as we make
 This is also where the term LLM (Large Language Model) comes from
  -->
 
+---
+layout: fact
 ---
 
 # Conclusion
