@@ -4,3 +4,7 @@
     bottom: 20px;
     right: 20px;
 }
+
+.slidev-vclick-target {
+    transition: all 500ms ease;
+}

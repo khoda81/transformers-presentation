@@ -21,6 +21,7 @@ transition: fade-out
 mdc: true
 
 layout: cover
+hideInToc: true
 ---
 
 <h1>
@@ -35,15 +36,9 @@ by Mahdi Khodabandeh
 
 <img id="logo" src="/images/guilan_universiy_logo.png" alt="Logo of Guilan University" />
 
-<!--
-The vanishing gradient problem (memory bottleneck)
-Attention is all you need! (The paper)
-We can also do parallelism (It runs fast on GPU)
-And, this was why transformers are everywhere! (Conclusion)
--->
-
 ---
 layout: two-cols
+hideInToc: true
 ---
 
 # Outline
@@ -62,7 +57,13 @@ Language modeling is the art of predicting the next token
 
 <br />
 
+<v-click>
+
 - Working with text is hard, so we use tokens!
+</v-click>
+
+<v-click>
+
 - For Example:
 
 <br />
@@ -70,8 +71,8 @@ Language modeling is the art of predicting the next token
 
 <div id="tokenization-example">
     <Tokenize :tokens="['The', ' quick', ' brown', ' fox', ' jumps', ' over', ' the', ' lazy', ' dog', '.']" />
-    <!-- TODO: Add a vertical distribution visualizer. -->
 </div>
+</v-click>
 
 <style>
     #tokenization-example {
@@ -79,10 +80,13 @@ Language modeling is the art of predicting the next token
     }
 </style>
 
-<!-- Think about it as auto-complete. -->
+<!-- 
+Think about it as auto-complete for natural language
+ -->
 
 ---
 layout: full
+hideInToc: true
 ---
 
 # What is a language model?
@@ -125,24 +129,30 @@ layout: full
     }
 </style>
 
-<!-- Its the thing that predicts the next token. -->
+<!--
+Its the thing that predicts <u>only</u> the next token.
+The token distribution.
+-->
 
 ---
+hideInToc: true
+---
 
-# Anything is language modeling...
+# Everything is language modeling...
 And language modeling is everything!
-
-<!-- TODO: break down this slide -->
-<!-- TODO: add examples of tasks that are language modeling -->
-<!-- TODO: add examples of knowledge that language modeling requires -->
 
 - Turns out just predicting the next token is so general
   - The model needs to know programming to predict a code token
   - You need to know different languages
+  - Needs to answer questions
   - It needs to have general knowledge of the world in case it needs to predict a capital name
   - Reasoning and logic is required to piece together what comes next
   - And so much more...
 
+<!-- TODO: add examples for how to abuse -->
+
+---
+hideInToc: true
 ---
 
 # LSTMs (RNNs)
@@ -155,13 +165,17 @@ And language modeling is everything!
 
 <img src="/images/LSTM.png" alt="A diagram of LSTM" />
 
+<!-- 
+How to read the diagram.
+ -->
+
 ---
 
 # RNNs were unstoppable!
 
 <br />
 
-1. 1950s: Early statistical models like n-grams'
+1. 1950s: Early statistical models like n-grams
 2. 1980s: RNNs
 3. 1990s-2000s: LSTMs
 4. 2010s: Attention introduced
@@ -189,6 +203,8 @@ layout: fact
 <!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
 
 ---
+hideInToc: true
+---
 
 # The fix
 
@@ -197,7 +213,10 @@ layout: fact
 - If you want something, just ask!
 
 <br />
-<img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" />
+
+<v-click>
+    <img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" />
+</v-click>
 
 <!-- The idea of attention was initially proposed to boost LSTMs! -->
 
@@ -221,20 +240,48 @@ layout: fact
 2. Computers (specially GPUs) love parallelism
     - Attention is **parallel** in nature
 
-<!-- TODO: insert computation graph -->
+<v-switch>
+  <template #0> <img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" /> </template>
+  <template #1> <img src="/images/RNN-is-sequential.png" alt="Showing rnn being sequential" /> </template>
+  <template #2> <img src="/images/Attention-is-parallel.png" alt="Showing attention being parallel" /> </template>
+</v-switch>
 
 <!-- GPUs have thousands of cores! Attention + GPU go brr -->
 
 ---
 
 # What if attention was all you needed?
+Asked some researcher at Google
 
-- What if we just used attention? Asked some researcher at Google
-- The paper "Attention is all you need" proposed to use <u>only</u> attention
+<br />
+
+The paper "Attention is all you need" proposed to use <u>only</u> attention.
+
+<img src="/images/Attention-is-all-you-need.png" alt="Showing attention being parallel" />
 
 <!-- 
 Tip #1 in optimization! Do less work!
 Turns out, it is more than you need :)
+ -->
+
+---
+
+# A transformer block
+<center>
+    <img src="/images/Transformer-block-attention-only.png" alt="A Transformer block" />
+</center>
+<!-- TODO:
+ -->
+
+---
+
+# The full architecture
+
+Originally had two parts
+
+<img src="/images/EncoderDecoder.png" alt="Architecture" />
+<!-- 
+
  -->
 
 ---
