@@ -8,7 +8,7 @@ info: false
 author: Mahdi Khodabandeh
 selectable: false
 # force color schema for the slides, can be 'auto', 'light', or 'dark'
-colorSchema: dark
+colorSchema: light
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # https://sli.dev/guide/drawing
@@ -22,6 +22,9 @@ mdc: true
 
 layout: cover
 hideInToc: true
+
+duration: 7min
+timer: stopwatch
 ---
 
 <h1>
@@ -34,7 +37,7 @@ hideInToc: true
 
 by Mahdi Khodabandeh
 
-<img id="logo" src="/images/guilan_universiy_logo.png" alt="Logo of Guilan University" />
+<img id="logo" :src="'/images/guilan_universiy_logo.png'" alt="Logo of Guilan University" />
 
 ---
 layout: two-cols
@@ -163,7 +166,7 @@ hideInToc: true
 
 <br />
 
-<img src="/images/LSTM.png" alt="A diagram of LSTM" />
+<img :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
 
 <!-- 
 How to read the diagram.
@@ -197,7 +200,7 @@ layout: fact
 <br />
 <br />
 
-<img src="/images/LSTM.png" alt="A diagram of LSTM" />
+<img :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
 <!-- TODO: add a bunch of arrows as we click -->
 
 <!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
@@ -215,7 +218,7 @@ hideInToc: true
 <br />
 
 <v-click>
-    <img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" />
+    <img :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" />
 </v-click>
 
 <!-- The idea of attention was initially proposed to boost LSTMs! -->
@@ -229,7 +232,7 @@ hideInToc: true
     2. Query
     3. Value
 
-<img src="/images/Attention.png" alt="A diagram of attention" />
+<img :src="'/images/Attention.png'" alt="A diagram of attention" />
 
 ---
 
@@ -241,9 +244,9 @@ hideInToc: true
     - Attention is **parallel** in nature
 
 <v-switch>
-  <template #0> <img src="/images/LSTM-with-attention.png" alt="A diagram of LSTM with attention" /> </template>
-  <template #1> <img src="/images/RNN-is-sequential.png" alt="Showing rnn being sequential" /> </template>
-  <template #2> <img src="/images/Attention-is-parallel.png" alt="Showing attention being parallel" /> </template>
+  <template #0> <img :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" /> </template>
+  <template #1> <img :src="'/images/RNN-is-sequential.png'" alt="Showing rnn being sequential" /> </template>
+  <template #2> <img :src="'/images/Attention-is-parallel.png'" alt="Showing attention being parallel" /> </template>
 </v-switch>
 
 <!-- GPUs have thousands of cores! Attention + GPU go brr -->
@@ -257,7 +260,7 @@ Asked some researcher at Google
 
 The paper "Attention is all you need" proposed to use <u>only</u> attention.
 
-<img src="/images/Attention-is-all-you-need.png" alt="Showing attention being parallel" />
+<img :src="'/images/Attention-is-all-you-need.png'" alt="Showing attention being parallel" />
 
 <!-- 
 Tip #1 in optimization! Do less work!
@@ -268,7 +271,7 @@ Turns out, it is more than you need :)
 
 # A transformer block
 <center>
-    <img src="/images/Transformer-block-attention-only.png" alt="A Transformer block" />
+    <img :src="'/images/Transformer-block-attention-only.png'" alt="A Transformer block" />
 </center>
 <!-- TODO:
  -->
@@ -279,7 +282,7 @@ Turns out, it is more than you need :)
 
 Originally had two parts
 
-<img src="/images/EncoderDecoder.png" alt="Architecture" />
+<img :src="'/images/EncoderDecoder.png'" alt="Architecture" />
 <!-- 
 
  -->
