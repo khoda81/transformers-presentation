@@ -8,7 +8,7 @@ info: false
 author: Mahdi Khodabandeh
 selectable: false
 # force color schema for the slides, can be 'auto', 'light', or 'dark'
-colorSchema: light
+colorSchema: dark
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # https://sli.dev/guide/drawing
@@ -37,7 +37,9 @@ timer: stopwatch
 
 by Mahdi Khodabandeh
 
+<!--
 <img id="logo" :src="'/images/guilan_universiy_logo.png'" alt="Logo of Guilan University" />
+-->
 
 ---
 layout: two-cols
@@ -52,107 +54,35 @@ hideInToc: true
 <Toc />
 
 ---
----
-
-# What is language modeling?
-
-Language modeling is the art of predicting the next token
-
-<br />
-
-<v-click>
-
-- Working with text is hard, so we use tokens!
-</v-click>
-
-<v-click>
-
-- For Example:
-
-<br />
-<br />
-
-<div id="tokenization-example">
-    <Tokenize :tokens="['The', ' quick', ' brown', ' fox', ' jumps', ' over', ' the', ' lazy', ' dog', '.']" />
-</div>
-</v-click>
-
-<style>
-    #tokenization-example {
-        font-size: 2rem;
-    }
-</style>
-
-<!-- 
-Think about it as auto-complete for natural language
- -->
-
----
 layout: full
 hideInToc: true
 ---
 
-# What is a language model?
+# Language modeling
 
-<br />
-
+<div>
+    <p class="lead">Language modeling is predicting the next token.</p>
+    <p>Working with text is hard, so we use tokens.</p>
+</div>
 <div id="language-model-example">
-    <div>
-        <Tokenize :tokens="['The', ' quick', ' brown', ' fox', ' jumps']" />
+    <div class="prompt-tokens">
+        <Tokenize animate :tokens="['The', ' quick', ' brown', ' fox', ' jumps']" />
     </div>
     <div class="distribution">
-        <div :style="{ opacity: '90.8119%' }"><Tokenize :colors="['#444a']" :tokens="[' over']" /></div>
-        <div :style="{ opacity: '50.6378%' }"><Tokenize :colors="['#444a']" :tokens="[' up']" /></div>
-        <div :style="{ opacity: '27.5646%' }"><Tokenize :colors="['#444a']" :tokens="[' out']" /></div>
-        <div :style="{ opacity: '8.3804%' }"><Tokenize :colors="['#444a']" :tokens="[' on']" /></div>
-        <div :style="{ opacity: '7.4399%' }"><Tokenize :colors="['#444a']" :tokens="[' in']" /></div>
-        <div :style="{ opacity: '7.1968%' }"><Tokenize :colors="['#444a']" :tokens="[' off']" /></div>
-        <div :style="{ opacity: '6.5143%' }"><Tokenize :colors="['#444a']" :tokens="[' into']" /></div>
-        <div :style="{ opacity: '5.3833%' }"><Tokenize :colors="['#444a']" :tokens="[' from']" /></div>
-        <div :style="{ opacity: '4.7140%' }"><Tokenize :colors="['#444a']" :tokens="[' to']" /></div>
-        <div :style="{ opacity: '1.4568%' }"><Tokenize :colors="['#444a']" :tokens="[' and']" /></div>
+        <div class="prediction" style="--probability: 0.91; --delay: 650ms"><Tokenize :colors="['#f8fafc33']" :tokens="[' over']" /></div>
+        <div class="prediction" style="--probability: 0.51; --delay: 750ms"><Tokenize :colors="['#f8fafc33']" :tokens="[' up']" /></div>
+        <div class="prediction" style="--probability: 0.28; --delay: 850ms"><Tokenize :colors="['#f8fafc33']" :tokens="[' out']" /></div>
+        <div class="prediction" style="--probability: 0.08; --delay: 950ms"><Tokenize :colors="['#f8fafc33']" :tokens="[' on']" /></div>
+        <div class="prediction" style="--probability: 0.07; --delay: 1050ms"><Tokenize :colors="['#f8fafc33']" :tokens="[' in']" /></div>
     </div>
 </div>
 
-<style>
-    #language-model-example {
-        font-size: 3rem;
-        padding: auto;
-        display: flex;
-    }
-
-    .distribution {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the start of the column */
-    }
-
-    .distribution div {
-        margin-bottom: 5px; /* Add margin between items */
-    }
-</style>
-
 <!--
-Its the thing that predicts <u>only</u> the next token.
+Think about it as auto-complete for natural language.
 The token distribution.
 -->
 
----
-hideInToc: true
----
-
-# Everything is language modeling...
-And language modeling is everything!
-
-- Turns out just predicting the next token is so general
-  - The model needs to know programming to predict a code token
-  - You need to know different languages
-  - Needs to answer questions
-  - It needs to have general knowledge of the world in case it needs to predict a capital name
-  - Reasoning and logic is required to piece together what comes next
-  - And so much more...
-
-<!-- TODO: add examples for how to abuse -->
+<SlideCurrentNo />
 
 ---
 hideInToc: true
@@ -160,17 +90,24 @@ hideInToc: true
 
 # LSTMs (RNNs)
 
+<v-clicks>
+
 - LSTM is one form of RNN
 - RNNs have a memory that is updated on each step
 - We need to compute each step before doing the next
 
+</v-clicks>
+
 <br />
 
-<img :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+<v-click>
+    <img class="slide-img diagram-reveal" :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+</v-click>
 
 <!-- 
 How to read the diagram.
  -->
+<SlideCurrentNo />
 
 ---
 
@@ -178,11 +115,28 @@ How to read the diagram.
 
 <br />
 
-1. 1950s: Early statistical models like n-grams
-2. 1980s: RNNs
-3. 1990s-2000s: LSTMs
-4. 2010s: Attention introduced
-5. 2017-present: Transformers
+<div class="timeline">
+    <div class="timeline-step" style="--delay: 0ms">
+        <span class="timeline-date">1950s</span>
+        <span class="timeline-label">Early statistical models like n-grams</span>
+    </div>
+    <div class="timeline-step" style="--delay: 140ms">
+        <span class="timeline-date">1980s</span>
+        <span class="timeline-label">RNNs</span>
+    </div>
+    <div class="timeline-step" style="--delay: 280ms">
+        <span class="timeline-date">1990s-2000s</span>
+        <span class="timeline-label">LSTMs</span>
+    </div>
+    <div class="timeline-step" style="--delay: 420ms">
+        <span class="timeline-date">2010s</span>
+        <span class="timeline-label">Attention introduced</span>
+    </div>
+    <div class="timeline-step" style="--delay: 560ms">
+        <span class="timeline-date">2017-present</span>
+        <span class="timeline-label">Transformers</span>
+    </div>
+</div>
 
 <!-- TODO: make this into a timeline -->
 
@@ -194,13 +148,19 @@ layout: fact
 ## RNNs had some problems...
 
 ---
+---
 
 # The memory bottleneck
 
 <br />
 <br />
 
-<img :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+<v-click>
+    <img class="slide-img diagram-reveal" :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+</v-click>
+
+
+<SlideCurrentNo />
 <!-- TODO: add a bunch of arrows as we click -->
 
 <!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
@@ -211,37 +171,66 @@ hideInToc: true
 
 # The fix
 
+<v-clicks>
+
 - What if we had an skip route?
 - This is where attention was born
 - If you want something, just ask!
 
+</v-clicks>
+
 <br />
 
 <v-click>
-    <img :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" />
+    <img class="slide-img diagram-reveal" :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" />
 </v-click>
+
 
 <!-- The idea of attention was initially proposed to boost LSTMs! -->
 
 ---
+---
 
 # Attention
 
+<v-click>
+
 - It has three parts:
-    1. Key
-    2. Query
-    3. Value
 
-<img :src="'/images/Attention.png'" alt="A diagram of attention" />
+</v-click>
 
+<v-click>
+
+- Key
+- Query
+- Value
+
+</v-click>
+
+<v-click>
+    <img class="slide-img diagram-reveal" :src="'/images/Attention.png'" alt="A diagram of attention" />
+</v-click>
+
+<SlideCurrentNo />
+
+---
 ---
 
 # What about performance?
 
+<v-click>
+
 1. Computers (specially GPUs) hate sequential workflows
-    - RNNs are **sequential** in nature
+- RNNs are **sequential** in nature
+
+</v-click>
+
+<v-click>
+
 2. Computers (specially GPUs) love parallelism
-    - Attention is **parallel** in nature
+- Attention is **parallel** in nature
+
+</v-click>
 
 <v-switch>
   <template #0> <img :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" /> </template>
@@ -252,15 +241,22 @@ hideInToc: true
 <!-- GPUs have thousands of cores! Attention + GPU go brr -->
 
 ---
+---
 
 # What if attention was all you needed?
 Asked some researcher at Google
 
 <br />
 
+<v-click>
+
 The paper "Attention is all you need" proposed to use <u>only</u> attention.
 
-<img :src="'/images/Attention-is-all-you-need.png'" alt="Showing attention being parallel" />
+</v-click>
+
+<v-click>
+    <img class="slide-img diagram-reveal" :src="'/images/Attention-is-all-you-need.png'" alt="Showing attention being parallel" />
+</v-click>
 
 <!-- 
 Tip #1 in optimization! Do less work!
@@ -268,21 +264,33 @@ Turns out, it is more than you need :)
  -->
 
 ---
+---
 
 # A transformer block
 <center>
-    <img :src="'/images/Transformer-block-attention-only.png'" alt="A Transformer block" />
+    <v-click>
+        <img class="slide-img diagram-reveal" :src="'/images/Transformer-block-attention-only.png'" alt="A Transformer block" />
+    </v-click>
 </center>
 <!-- TODO:
  -->
 
+<SlideCurrentNo />
+
+---
 ---
 
 # The full architecture
 
+<v-click>
+
 Originally had two parts
 
-<img :src="'/images/EncoderDecoder.png'" alt="Architecture" />
+</v-click>
+
+<v-click>
+    <img class="slide-img diagram-reveal" :src="'/images/EncoderDecoder.png'" alt="Architecture" />
+</v-click>
 <!-- 
 
  -->
@@ -300,10 +308,21 @@ They were parallel!
 
 # Size matters (in deep learning)
 
-- Deep learning cycle
-    1. The more compute you have 
-    2. The more data you can process 
-    3. The better your model gets
+<div class="size-triangle">
+    <div class="pillar pillar-compute" style="--delay: 0ms">
+        <strong>Compute</strong>
+        <span>More training steps</span>
+    </div>
+    <div class="pillar pillar-data" style="--delay: 160ms">
+        <strong>Data</strong>
+        <span>More examples</span>
+    </div>
+    <div class="pillar pillar-model" style="--delay: 320ms">
+        <strong>Model</strong>
+        <span>Better predictions</span>
+    </div>
+    <div class="triangle-core" style="--delay: 520ms">Scale</div>
+</div>
 
 <!-- 
 This does not seem to stop (aka. our models seem to always get better as we make them bigger)

@@ -19,13 +19,24 @@ const props = defineProps({
             "rgba(107, 64, 216, 0.5)",
         ],
     },
+    animate: {
+        type: Boolean,
+        default: false,
+    },
+    delay: {
+        type: Number,
+        default: 100,
+    },
 });
 
 </script>
 
 <template>
-    <span v-for="(token, index) in props.tokens" :key="token" class="token"
-        :style="{ backgroundColor: props.colors[(index + props.initialColorIndex) % props.colors.length] }">
+    <span v-for="(token, index) in props.tokens" :key="token" class="token" :class="{ 'token-animated': props.animate }"
+        :style="{
+            backgroundColor: props.colors[(index + props.initialColorIndex) % props.colors.length],
+            animationDelay: `${index * props.delay}ms`,
+        }">
         {{ token }}
     </span>
 </template>
@@ -37,5 +48,18 @@ const props = defineProps({
     border-radius: 0.3em;
     line-height: 1.5em;
     white-space: pre-wrap;
+}
+
+.token-animated {
+    opacity: 0;
+    transform: translateY(0.25em);
+    animation: token-in 220ms ease forwards;
+}
+
+@keyframes token-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
