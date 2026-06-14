@@ -306,97 +306,67 @@ They were parallel!
 This does not seem to stop (aka. our models seem to always get better as we make them bigger)
 This is also where the term LLM (Large Language Model) comes from
  -->
-
 ---
 hideInToc: true
+katex: true
 ---
 
 # Key Innovations of "Attention Is All You Need"
 
-<div class="text-center opacity-80 mb-6">
+<div class="text-center text-gray-500 mb-6 text-sm">
   What made this paper a breakthrough?
 </div>
 
-<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+<div class="grid grid-cols-2 gap-4">
 
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+<!-- Column 1 -->
+<div class="space-y-4">
 
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">1</div>
-  <span class="font-semibold text-lg">Pure self-attention</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  No recurrence or convolution at all
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">1. Pure self-attention</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300">No recurrence or convolution — fully parallelizable within a sequence.</div>
 </div>
 
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">2. Multi-head attention</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300">Multiple heads in parallel → different representation subspaces.</div>
 </div>
 
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
-
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">2</div>
-  <span class="font-semibold text-lg">Multi-head attention</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  Attending to different representation subspaces
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">3. Sinusoidal positional encoding</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">Injecting sequence order:</div>
+  <div class="text-xs text-gray-500 mt-1">Different frequencies for each dimension.</div>
 </div>
 
 </div>
 
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+<!-- Column 2 -->
+<div class="space-y-4">
 
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">3</div>
-  <span class="font-semibold text-lg">Positional encoding</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  Injecting sequence order information
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">4. Scaled dot‑product attention</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300 mb-1">Efficient matrix‑based attention:</div>
 </div>
 
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">5. Encoder‑decoder with only attention</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300">No RNN/CNN → fully parallel training and long-range dependencies.</div>
 </div>
 
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
-
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">4</div>
-  <span class="font-semibold text-lg">Scaled dot‑product attention</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  Efficient and fast to compute
-</div>
-
-</div>
-
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
-
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">5</div>
-  <span class="font-semibold text-lg">Encoder‑decoder with only attention</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  Fully parallelizable architecture
-</div>
-
-</div>
-
-<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
-
-<div class="flex items-center gap-3 mb-2">
-  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">6</div>
-  <span class="font-semibold text-lg">Enabling massive scaling</span>
-</div>
-<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
-  Training on thousands of GPUs became possible
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+  <div class="font-bold text-purple-700 dark:text-purple-300">6. Enabling massive scaling</div>
+  <div class="text-sm text-gray-600 dark:text-gray-300">Parallel processing across all positions → training on thousands of GPUs.<br/>
+  <span class="text-xs text-gray-500">(Matrix multiplication replaces sequential loops)</span>
+  </div>
 </div>
 
 </div>
 
 </div>
 
-<style>
-/* Optional: Adjust for dark/light mode automatically handled by Slidev */
-</style>
-
+<div class="text-center text-xs text-gray-400 mt-6">
+  — These six innovations made Transformers the dominant architecture since 2017 —
+</div>
 ---
 layout: fact
 class: text-center
