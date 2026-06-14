@@ -328,11 +328,148 @@ This is also where the term LLM (Large Language Model) comes from
  -->
 
 ---
+hideInToc: true
+---
+
+# Key Innovations of "Attention Is All You Need"
+
+<div class="text-center opacity-80 mb-6">
+  What made this paper a breakthrough?
+</div>
+
+<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">1</div>
+  <span class="font-semibold text-lg">Pure self-attention</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  No recurrence or convolution at all
+</div>
+
+</div>
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">2</div>
+  <span class="font-semibold text-lg">Multi-head attention</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  Attending to different representation subspaces
+</div>
+
+</div>
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">3</div>
+  <span class="font-semibold text-lg">Positional encoding</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  Injecting sequence order information
+</div>
+
+</div>
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">4</div>
+  <span class="font-semibold text-lg">Scaled dot‑product attention</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  Efficient and fast to compute
+</div>
+
+</div>
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">5</div>
+  <span class="font-semibold text-lg">Encoder‑decoder with only attention</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  Fully parallelizable architecture
+</div>
+
+</div>
+
+<div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+
+<div class="flex items-center gap-3 mb-2">
+  <div class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">6</div>
+  <span class="font-semibold text-lg">Enabling massive scaling</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-400 ml-10">
+  Training on thousands of GPUs became possible
+</div>
+
+</div>
+
+</div>
+
+<style>
+/* Optional: Adjust for dark/light mode automatically handled by Slidev */
+</style>
+
+---
 layout: fact
+class: text-center
+hideInToc: true
 ---
 
 # Conclusion
-LSTMs are dead! Long live transformers!
+
+<br />
+
+<div class="grid grid-cols-1 gap-4 text-left max-w-2xl mx-auto">
+
+<div class="flex items-start gap-3">
+  <div class="text-3xl"></div>
+  <div>
+    <strong>Removed the sequential bottleneck</strong><br />
+    <span class="text-sm opacity-80">Transformers unlocked <span class="font-mono">parallel training</span> at scale</span>
+  </div>
+</div>
+
+<div class="flex items-start gap-3">
+  <div class="text-3xl"></div>
+  <div>
+    <strong>Set the stage for LLMs</strong><br />
+    <span class="text-sm opacity-80">GPT · BERT · Llama · and every modern model</span>
+  </div>
+</div>
+
+<div class="flex items-start gap-3">
+  <div class="text-3xl"></div>
+  <div>
+    <strong>Inspired a new research direction</strong><br />
+    <span class="text-sm opacity-80">“<Tokenize :tokens="['Attention', ' is', ' more', ' than', ' you', ' need']" />”</span>
+  </div>
+</div>
+
+</div>
+
+<br />
+
+<hr class="w-24 mx-auto my-4 border-t-2 border-gray-400 opacity-50" />
+
+<div class="text-lg font-medium">
+  <span class="line-through opacity-60">LSTMs are dead</span>   →  
+  <span class="text-gradient bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">Transformers became the new king</span>
+</div>
+
+<style>
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+</style>
 
 <!-- 
 This does not seem to stop (aka. our models seem to always get better as we make them bigger)
