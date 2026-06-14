@@ -1,6 +1,6 @@
 ---
 theme: ./theme
-background: "/images/background.png"
+background: "./images/background.png"
 # some information about your slides, markdown enabled
 title: Attention is more than what you need
 titleTemplate: "%s"
@@ -38,7 +38,7 @@ timer: stopwatch
 by Mahdi Khodabandeh
 
 <!--
-<img id="logo" :src="'/images/guilan_universiy_logo.png'" alt="Logo of Guilan University" />
+<img id="logo" :src="'./images/guilan_universiy_logo.png'" alt="Logo of Guilan University" />
 -->
 
 ---
@@ -101,7 +101,7 @@ hideInToc: true
 <br />
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+    <img class="slide-img diagram-reveal" :src="'./images/LSTM.png'" alt="A diagram of LSTM" />
 </v-click>
 
 <!-- 
@@ -156,7 +156,7 @@ layout: fact
 <br />
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/LSTM.png'" alt="A diagram of LSTM" />
+    <img class="slide-img diagram-reveal" :src="'./images/LSTM.png'" alt="A diagram of LSTM" />
 </v-click>
 
 
@@ -182,7 +182,7 @@ hideInToc: true
 <br />
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" />
+    <img class="slide-img diagram-reveal" :src="'./images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" />
 </v-click>
 
 
@@ -208,7 +208,7 @@ hideInToc: true
 </v-click>
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/Attention.png'" alt="A diagram of attention" />
+    <img class="slide-img diagram-reveal" :src="'./images/Attention.png'" alt="A diagram of attention" />
 </v-click>
 
 <SlideCurrentNo />
@@ -233,9 +233,9 @@ hideInToc: true
 </v-click>
 
 <v-switch>
-  <template #0> <img :src="'/images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" /> </template>
-  <template #1> <img :src="'/images/RNN-is-sequential.png'" alt="Showing rnn being sequential" /> </template>
-  <template #2> <img :src="'/images/Attention-is-parallel.png'" alt="Showing attention being parallel" /> </template>
+  <template #0> <img :src="'./images/LSTM-with-attention.png'" alt="A diagram of LSTM with attention" /> </template>
+  <template #1> <img :src="'./images/RNN-is-sequential.png'" alt="Showing rnn being sequential" /> </template>
+  <template #2> <img :src="'./images/Attention-is-parallel.png'" alt="Showing attention being parallel" /> </template>
 </v-switch>
 
 <!-- GPUs have thousands of cores! Attention + GPU go brr -->
@@ -255,7 +255,7 @@ The paper "Attention is all you need" proposed to use <u>only</u> attention.
 </v-click>
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/Attention-is-all-you-need.png'" alt="Showing attention being parallel" />
+    <img class="slide-img diagram-reveal" :src="'./images/Attention-is-all-you-need.png'" alt="Showing attention being parallel" />
 </v-click>
 
 <!-- 
@@ -269,7 +269,7 @@ Turns out, it is more than you need :)
 # A transformer block
 <center>
     <v-click>
-        <img class="slide-img diagram-reveal" :src="'/images/Transformer-block-attention-only.png'" alt="A Transformer block" />
+        <img class="slide-img diagram-reveal" :src="'./images/Transformer-block-attention-only.png'" alt="A Transformer block" />
     </v-click>
 </center>
 <!-- TODO:
@@ -289,7 +289,7 @@ Originally had two parts
 </v-click>
 
 <v-click>
-    <img class="slide-img diagram-reveal" :src="'/images/EncoderDecoder.png'" alt="Architecture" />
+    <img class="slide-img diagram-reveal" :src="'./images/EncoderDecoder.png'" alt="Architecture" />
 </v-click>
 <!-- 
 
