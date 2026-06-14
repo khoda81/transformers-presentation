@@ -35,7 +35,7 @@ timer: stopwatch
   <Tokenize :initialColorIndex="1" :tokens="[' is', ' more', ' than', ' you', ' need']" />
 </h1>
 
-by Mahdi Khodabandeh
+by  Mahdi Khodabandeh &  Reyhane parsa
 
 <img id="logo" :src="'./images/tehran_universiy_logo.png'" alt="Logo of Tehran University" />
 
