@@ -8,7 +8,7 @@ info: false
 author: Mahdi Khodabandeh
 selectable: false
 # force color schema for the slides, can be 'auto', 'light', or 'dark'
-colorSchema: dark
+colorSchema: light
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # https://sli.dev/guide/drawing
@@ -34,7 +34,7 @@ hideInToc: true
 
 by Mahdi Khodabandeh
 
-<img id="logo" src="/images/guilan_universiy_logo.png" alt="Logo of Guilan University" />
+<img id="logo" src="/images/tehran_universiy_logo.png" alt="Logo of Guilan University" />
 
 ---
 layout: two-cols
