@@ -37,9 +37,7 @@ timer: stopwatch
 
 by Mahdi Khodabandeh
 
-<!--
-<img id="logo" :src="'./images/guilan_universiy_logo.png'" alt="Logo of Guilan University" />
--->
+<img id="logo" :src="'./images/tehran_universiy_logo.png'" alt="Logo of Tehran University" />
 
 ---
 layout: two-cols
