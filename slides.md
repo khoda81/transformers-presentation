@@ -111,28 +111,31 @@ How to read the diagram.
 
 # RNNs were unstoppable!
 
-<br />
 
 <div class="timeline">
     <div class="timeline-step" style="--delay: 0ms">
-        <span class="timeline-date">1950s</span>
-        <span class="timeline-label">Early statistical models like n-grams</span>
+        <span class="timeline-date">Before 1990</span>
+        <span class="timeline-label">Statistical language models</span>
     </div>
     <div class="timeline-step" style="--delay: 140ms">
-        <span class="timeline-date">1980s</span>
+        <span class="timeline-date">1990s</span>
         <span class="timeline-label">RNNs</span>
     </div>
     <div class="timeline-step" style="--delay: 280ms">
-        <span class="timeline-date">1990s-2000s</span>
+        <span class="timeline-date">1997</span>
         <span class="timeline-label">LSTMs</span>
     </div>
     <div class="timeline-step" style="--delay: 420ms">
-        <span class="timeline-date">2010s</span>
-        <span class="timeline-label">Attention introduced</span>
+        <span class="timeline-date">2014</span>
+        <span class="timeline-label">Attention for LSTMs</span>
     </div>
     <div class="timeline-step" style="--delay: 560ms">
-        <span class="timeline-date">2017-present</span>
+        <span class="timeline-date">2017</span>
         <span class="timeline-label">Transformers</span>
+    </div>
+    <div class="timeline-step" style="--delay: 700ms">
+        <span class="timeline-date">Today</span>
+        <span class="timeline-label">LLMs</span>
     </div>
 </div>
 
@@ -159,9 +162,8 @@ layout: fact
 
 
 <SlideCurrentNo />
-<!-- TODO: add a bunch of arrows as we click -->
 
-<!-- The memory size is fixed no matter how long the sequence is. This is called the vanishing gradient problem. -->
+<!-- The encoder must compress the entire sequence into a fixed-size representation. Long-range dependencies are difficult to learn due to vanishing gradients. -->
 
 ---
 hideInToc: true
@@ -184,7 +186,7 @@ hideInToc: true
 </v-click>
 
 
-<!-- The idea of attention was initially proposed to boost LSTMs! -->
+<!-- Attention was first introduced as an extension to encoder-decoder RNN/LSTM models for machine translation. -->
 
 ---
 ---
